@@ -1,13 +1,15 @@
+
 import 'package:flutter/material.dart';
-import '../../features/cart/presentation/pages/catalog_page.dart';
-import '../../features/cart/presentation/pages/cart_page.dart';
+import 'package:provider/provider.dart';
+import 'features/cart/data/repositories/cart_repository_impl.dart';
+import 'features/cart/presentation/providers/cart_provider.dart';
+import 'main.dart';
 
-class AppRouter {
-  static const String catalog = '/';
-  static const String cart = '/cart';
+Widget buildApp() {
+  final cartRepository = CartRepositoryImpl();
 
-  static Map<String, WidgetBuilder> get routes => {
-    catalog: (context) => const CatalogPage(),
-    cart: (context) => const CartPage(),
-  };
+  return ChangeNotifierProvider(
+    create: (context) => CartProvider(repository: cartRepository),
+    child: const MyApp(),
+  );
 }
