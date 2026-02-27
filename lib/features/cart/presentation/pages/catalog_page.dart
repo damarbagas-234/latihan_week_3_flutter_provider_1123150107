@@ -9,6 +9,7 @@ class CatalogPage extends StatelessWidget {
     const Product(id: '1', name: 'Nasi Goreng', price: 15000),
     const Product(id: '2', name: 'Sate Ayam', price: 20000),
     const Product(id: '3', name: 'Es Teh', price: 5000),
+    const Product(id: '4', name: 'Es Jeruk', price: 7000),
   ];
   @override
   Widget build(BuildContext context) {
