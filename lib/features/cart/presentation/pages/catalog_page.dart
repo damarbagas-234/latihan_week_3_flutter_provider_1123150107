@@ -6,10 +6,10 @@ import '../widgets/add_button_widget.dart';
 class CatalogPage extends StatelessWidget {
   const CatalogPage({super.key});
   static final List<Product> _products = [
-    const Product(id: '1', name: 'Nasi Goreng', price: 15000),
-    const Product(id: '2', name: 'Sate Ayam', price: 20000),
-    const Product(id: '3', name: 'Es Teh', price: 5000),
-    const Product(id: '4', name: 'Es Jeruk', price: 7000),
+    const Product(id: '1', name: 'Nasi Goreng', price: 13000),
+    const Product(id: '2', name: 'Sate Ayam', price: 15000),
+    const Product(id: '3', name: 'Es Teh', price: 3000),
+    const Product(id: '4', name: 'Es Jeruk', price: 5000),
   ];
   @override
   Widget build(BuildContext context) {
