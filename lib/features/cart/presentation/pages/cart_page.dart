@@ -7,14 +7,8 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Sekarang kita memantau CartProvider, bukan CartModel
     var cart = context.watch<CartProvider>();
-
-    // Kalau kosong → layar putih polos
-    if (cart.items.isEmpty) {
-      return const Scaffold(backgroundColor: Colors.white);
-    }
-
-    // Kalau ada isi → tampil normal
     return Scaffold(
       appBar: AppBar(title: const Text('Keranjang Belanja')),
       body: Column(
@@ -24,6 +18,7 @@ class CartPage extends StatelessWidget {
               itemCount: cart.items.length,
               itemBuilder: (context, index) => ListTile(
                 leading: const Icon(Icons.fastfood),
+                // Karena items sekarang berisi Product, kita harus memanggil .name
                 title: Text(cart.items[index].name),
                 subtitle: Text('Rp ${cart.items[index].price}'),
               ),
