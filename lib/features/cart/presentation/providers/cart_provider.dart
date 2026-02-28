@@ -3,16 +3,21 @@ import '../../domain/entities/product.dart';
 import '../../domain/repositories/cart_repository.dart';
 
 class CartProvider extends ChangeNotifier {
-  // menggunakan variabel private _repository supaya lebih aman
+  // Menggunakan variabel private _repository agar lebih aman
   final CartRepository _repository;
 
-  // menyuntikkan dependensi lewat konstruktor
+  // Dependency Injection melalui constructor [cite: 1528]
   CartProvider({required CartRepository repository}) : _repository = repository;
 
   List<Product> get items => _repository.getCartItems();
 
   void addItem(Product product) {
     _repository.addItem(product);
+    notifyListeners();
+  }
+
+  void removeItem(String productId) {
+    _repository.removeItem(productId);
     notifyListeners();
   }
 
