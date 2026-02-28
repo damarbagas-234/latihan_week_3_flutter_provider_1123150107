@@ -15,10 +15,10 @@ class AddButtonWidget extends StatelessWidget {
     );
     return TextButton(
       onPressed: isInCart
-          ? null
+          ? () => context.read<CartProvider>().removeItem(product.id)
           : () => context.read<CartProvider>().addItem(product),
       child: isInCart
-          ? const Icon(Icons.check, color: Colors.green)
+          ? const Icon(Icons.remove, color: Colors.red)
           : const Text('TAMBAH'),
     );
   }
